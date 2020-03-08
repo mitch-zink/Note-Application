@@ -1,0 +1,71 @@
+// imports global styles
+@import '../../main-styles.scss';
+
+.note-card-container {
+    position: relative;
+    background: white; // note background 
+    border-radius: 5px; // rounded edges
+    box-shadow: 0px 2px 15px 2px rgba(black, 0.068); // box shadows
+    transition: box-shadow 0.2s ease-out; // transition
+
+    // hover styling | nested but closed at the end
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 4px rgba(black, 0.068);
+
+        .x-button {
+            opacity: 1; // opacity
+            transform: scale(1); // scales 
+
+            transition-delay: 0.35s; // delay
+        }
+    }
+
+    .note-card-content { // nesting thanks to scss | body
+        padding: 25px; 
+        
+        .note-card-title { // title
+            font-size: 22px;
+            font-weight: bold;
+            color: $purple;
+        }
+
+    }}
+
+    // X/delete button
+
+.x-button {
+    position: absolute;
+
+    // 12px from the top
+    top: 12px;
+
+    // 12px from the right side
+    right: 12px;
+
+    // H&W
+    height: 34px;
+    width: 34px; 
+
+    background-color: $light-red; // light red background color that overlays the background image
+    background-image: url('../../assets/delete_icon.svg'); // image location
+    background-repeat: no-repeat; // no repeat on background
+    background-position: center; // centers background
+
+    border-radius: 4px; //border
+
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out; // ease in out transiiton
+
+    // the button is hidden by default
+    opacity: 0;
+    transform: scale(0.35);
+
+    &:hover { 
+        background-color: darken($light-red, 2%);
+    }
+
+    // on click
+    &:active {
+        background-color: darken($light-red, 4%);
+    }
+}
